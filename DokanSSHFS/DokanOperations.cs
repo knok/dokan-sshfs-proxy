@@ -82,6 +82,7 @@ namespace DokanSSHFS
     {
         private JSch jsch_;
         private Session session_;
+        private ProxyHTTP proxy_;
 
         private object sessionLock_ = new Object();
         private Dictionary<int, ChannelSftp> channels_;
@@ -94,6 +95,10 @@ namespace DokanSSHFS
         private string root_;
         private string passphrase_;
         private string password_;
+        private string proxyhost_;
+        private int proxyport_;
+        private string proxyuser_;
+        private string proxypassword_;
 
         private System.IO.TextWriter tw_;
 
@@ -105,7 +110,9 @@ namespace DokanSSHFS
         {
         }
 
-        public void Initialize(string user, string host, int port, string password, string identity, string passphrase, string root, bool debug)
+        public void Initialize(string user, string host, int port, string password, string identity,
+            string passphrase, string proxyhost, int proxyport, string proxyuser, string proxypassword,
+            string root, bool debug)
         {
             user_ = user;
             host_ = host;
@@ -113,6 +120,10 @@ namespace DokanSSHFS
             identity_ = identity;
             password_ = password;
             passphrase_ = passphrase;
+            proxyhost_ = proxyhost;
+            proxyport_ = proxyport;
+            proxyuser_ = proxyuser;
+            proxypassword_ = proxypassword;
 
             root_ = root;
 
@@ -147,10 +158,23 @@ namespace DokanSSHFS
                 Hashtable config = new Hashtable();
                 config["StrictHostKeyChecking"] = "no";
 
+                bool useProxy = false;
+                if (proxyhost_ != null && proxyport_ != 0)
+                {
+                    useProxy = true;
+                    proxy_ = new ProxyHTTP(proxyhost_, proxyport_);
+                    if (proxyuser_ != null && proxypassword_ != null)
+                    {
+                        proxy_.setUserPasswd(proxyuser_, proxypassword_);
+                    }
+                }
+
                 if (identity_ != null)
                     jsch_.addIdentity(identity_, passphrase_);
 
                 session_ = jsch_.getSession(user_, host_, port_);
+                if (useProxy)
+                    session_.setProxy(proxy_);
                 session_.setConfig(config);
                 session_.setUserInfo(new DokanUserInfo(password_, passphrase_));
                 session_.setPassword(password_);

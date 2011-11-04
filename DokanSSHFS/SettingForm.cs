@@ -144,6 +144,10 @@ namespace DokanSSHFS
                 usePrivateKey.Checked ? null : password.Text,
                 usePrivateKey.Checked ? privatekey.Text : null,
                 usePrivateKey.Checked ? passphrase.Text : null,
+                useHttpProxy.Checked ? proxyHost.Text : null,
+                useHttpProxy.Checked ? int.Parse(proxyPort.Text) : 0,
+                useProxyAuth.Checked ? proxyUser.Text : null,
+                useProxyAuth.Checked ? proxyPasswd.Text : null,
                 root.Text,
                 DokanSSHFS.SSHDebug);
 
