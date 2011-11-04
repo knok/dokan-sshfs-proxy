@@ -59,21 +59,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.proxyPasswd = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.proxyUser = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.useProxyAuth = new System.Windows.Forms.CheckBox();
+            this.proxyPort = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.proxyHost = new System.Windows.Forms.TextBox();
+            this.useHttpProxy = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.drive = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.withoutOfflineAttribute = new System.Windows.Forms.CheckBox();
             this.disableCache = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.useHttpProxy = new System.Windows.Forms.CheckBox();
-            this.proxyHost = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.proxyPort = new System.Windows.Forms.TextBox();
-            this.useProxyAuth = new System.Windows.Forms.CheckBox();
-            this.proxyPasswd = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.proxyUser = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.notifyMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -304,6 +304,7 @@
             // 
             this.passphrase.Location = new System.Drawing.Point(92, 138);
             this.passphrase.Name = "passphrase";
+            this.passphrase.PasswordChar = '*';
             this.passphrase.Size = new System.Drawing.Size(223, 19);
             this.passphrase.TabIndex = 12;
             // 
@@ -363,6 +364,99 @@
             this.tabPage1.Text = "Site";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // proxyPasswd
+            // 
+            this.proxyPasswd.Enabled = false;
+            this.proxyPasswd.Location = new System.Drawing.Point(237, 285);
+            this.proxyPasswd.Name = "proxyPasswd";
+            this.proxyPasswd.PasswordChar = '*';
+            this.proxyPasswd.Size = new System.Drawing.Size(77, 19);
+            this.proxyPasswd.TabIndex = 34;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(154, 288);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 12);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Proxy Passwd";
+            // 
+            // proxyUser
+            // 
+            this.proxyUser.Enabled = false;
+            this.proxyUser.Location = new System.Drawing.Point(70, 285);
+            this.proxyUser.Name = "proxyUser";
+            this.proxyUser.Size = new System.Drawing.Size(74, 19);
+            this.proxyUser.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(2, 288);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 12);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Proxy User";
+            // 
+            // useProxyAuth
+            // 
+            this.useProxyAuth.AutoSize = true;
+            this.useProxyAuth.Enabled = false;
+            this.useProxyAuth.Location = new System.Drawing.Point(129, 238);
+            this.useProxyAuth.Name = "useProxyAuth";
+            this.useProxyAuth.Size = new System.Drawing.Size(102, 16);
+            this.useProxyAuth.TabIndex = 30;
+            this.useProxyAuth.Text = "Use proxy auth";
+            this.useProxyAuth.UseVisualStyleBackColor = true;
+            this.useProxyAuth.CheckedChanged += new System.EventHandler(this.useProxyAuth_CheckedChanged);
+            // 
+            // proxyPort
+            // 
+            this.proxyPort.Enabled = false;
+            this.proxyPort.Location = new System.Drawing.Point(259, 260);
+            this.proxyPort.Name = "proxyPort";
+            this.proxyPort.Size = new System.Drawing.Size(55, 19);
+            this.proxyPort.TabIndex = 29;
+            this.proxyPort.Text = "8080";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(194, 263);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Proxy Port";
+            // 
+            // proxyHost
+            // 
+            this.proxyHost.Enabled = false;
+            this.proxyHost.Location = new System.Drawing.Point(70, 260);
+            this.proxyHost.Name = "proxyHost";
+            this.proxyHost.Size = new System.Drawing.Size(118, 19);
+            this.proxyHost.TabIndex = 27;
+            // 
+            // useHttpProxy
+            // 
+            this.useHttpProxy.AutoSize = true;
+            this.useHttpProxy.Location = new System.Drawing.Point(6, 238);
+            this.useHttpProxy.Name = "useHttpProxy";
+            this.useHttpProxy.Size = new System.Drawing.Size(100, 16);
+            this.useHttpProxy.TabIndex = 26;
+            this.useHttpProxy.Text = "Use http proxy";
+            this.useHttpProxy.UseVisualStyleBackColor = true;
+            this.useHttpProxy.CheckedChanged += new System.EventHandler(this.useHttpProxy_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(2, 263);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 12);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Proxy Host";
+            // 
             // drive
             // 
             this.drive.FormattingEnabled = true;
@@ -406,7 +500,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(332, 237);
+            this.tabPage2.Size = new System.Drawing.Size(332, 320);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Option";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -439,92 +533,6 @@
             this.label7.Size = new System.Drawing.Size(34, 12);
             this.label7.TabIndex = 24;
             this.label7.Text = "Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 263);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 12);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "Proxy Host";
-            // 
-            // useHttpProxy
-            // 
-            this.useHttpProxy.AutoSize = true;
-            this.useHttpProxy.Location = new System.Drawing.Point(6, 238);
-            this.useHttpProxy.Name = "useHttpProxy";
-            this.useHttpProxy.Size = new System.Drawing.Size(100, 16);
-            this.useHttpProxy.TabIndex = 26;
-            this.useHttpProxy.Text = "Use http proxy";
-            this.useHttpProxy.UseVisualStyleBackColor = true;
-            // 
-            // proxyHost
-            // 
-            this.proxyHost.Location = new System.Drawing.Point(70, 260);
-            this.proxyHost.Name = "proxyHost";
-            this.proxyHost.Size = new System.Drawing.Size(118, 19);
-            this.proxyHost.TabIndex = 27;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(194, 263);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 12);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Proxy Port";
-            // 
-            // proxyPort
-            // 
-            this.proxyPort.Location = new System.Drawing.Point(259, 260);
-            this.proxyPort.Name = "proxyPort";
-            this.proxyPort.Size = new System.Drawing.Size(55, 19);
-            this.proxyPort.TabIndex = 29;
-            this.proxyPort.Text = "8080";
-            // 
-            // useProxyAuth
-            // 
-            this.useProxyAuth.AutoSize = true;
-            this.useProxyAuth.Location = new System.Drawing.Point(129, 238);
-            this.useProxyAuth.Name = "useProxyAuth";
-            this.useProxyAuth.Size = new System.Drawing.Size(102, 16);
-            this.useProxyAuth.TabIndex = 30;
-            this.useProxyAuth.Text = "Use proxy auth";
-            this.useProxyAuth.UseVisualStyleBackColor = true;
-            // 
-            // proxyPasswd
-            // 
-            this.proxyPasswd.Location = new System.Drawing.Point(237, 285);
-            this.proxyPasswd.Name = "proxyPasswd";
-            this.proxyPasswd.PasswordChar = '*';
-            this.proxyPasswd.Size = new System.Drawing.Size(77, 19);
-            this.proxyPasswd.TabIndex = 34;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(154, 288);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 12);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Proxy Passwd";
-            // 
-            // proxyUser
-            // 
-            this.proxyUser.Location = new System.Drawing.Point(70, 285);
-            this.proxyUser.Name = "proxyUser";
-            this.proxyUser.Size = new System.Drawing.Size(74, 19);
-            this.proxyUser.TabIndex = 32;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(2, 288);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 12);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "Proxy User";
             // 
             // SettingForm
             // 

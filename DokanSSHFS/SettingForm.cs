@@ -310,6 +310,20 @@ namespace DokanSSHFS
             s.DisableCache = disableCache.Checked;
             s.WithoutOfflineAttribute = withoutOfflineAttribute.Checked;
 
+            s.UseHttpProxy = useHttpProxy.Checked;
+            s.ProxyHost = proxyHost.Text;
+            try
+            {
+                s.ProxyPort = Int32.Parse(proxyPort.Text);
+            }
+            catch (Exception)
+            {
+                s.ProxyPort = 0;
+            }
+            s.UseProxyAuth = useProxyAuth.Checked;
+            s.ProxyUser = proxyUser.Text;
+            s.ProxyPassword = proxyPasswd.Text;
+
             settings.Save();
 
             SettingLoad();
@@ -337,6 +351,12 @@ namespace DokanSSHFS
             usePrivateKey.Checked = !s.UsePassword;
             usePassword_CheckedChanged(null, null);
             usePrivateKey_CheckedChanged(null, null);
+            useHttpProxy.Checked = s.UseHttpProxy;
+            proxyHost.Text = s.ProxyHost;
+            proxyPort.Text = s.ProxyPort.ToString();
+            useProxyAuth.Checked = s.UseProxyAuth;
+            proxyUser.Text = s.ProxyUser;
+            proxyPasswd.Text = s.ProxyPassword;
 
             disableCache.Checked = s.DisableCache;
             withoutOfflineAttribute.Checked = s.WithoutOfflineAttribute;
@@ -370,6 +390,36 @@ namespace DokanSSHFS
         {
             unmount.Visible = false;
             this.Show();
+        }
+
+        private void useHttpProxy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (useHttpProxy.Checked)
+            {
+                useProxyAuth.Enabled = true;
+                proxyHost.Enabled = true;
+                proxyPort.Enabled = true;
+            }
+            else
+            {
+                useProxyAuth.Enabled = false;
+                proxyHost.Enabled = false;
+                proxyPort.Enabled = false;
+            }
+        }
+
+        private void useProxyAuth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (useProxyAuth.Checked)
+            {
+                proxyUser.Enabled = true;
+                proxyPasswd.Enabled = true;
+            }
+            else
+            {
+                proxyUser.Enabled = false;
+                proxyPasswd.Enabled = false;
+            }
         }
     }
 }

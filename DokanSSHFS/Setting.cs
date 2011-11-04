@@ -16,6 +16,12 @@ namespace DokanSSHFS
         public bool UsePassword = false;
         public string ServerRoot = "/";
         public string Drive = "N";
+        public bool UseHttpProxy = false;
+        public string ProxyHost = "";
+        public int ProxyPort = 0;
+        public bool UseProxyAuth = false;
+        public string ProxyUser = "";
+        public string ProxyPassword = "";
         public bool DisableCache = false;
         public bool WithoutOfflineAttribute = false;
     }
